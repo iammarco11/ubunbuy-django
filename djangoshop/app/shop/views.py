@@ -1,8 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
+from django.shortcuts import render
 from .models import search
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the polls index.")
 def result(request,searchtext):
-	response = "You searched for %s"
-	return HttpResponse(response % searchtext)	
+	return HttpResponse("You searched for %s" % searchtext)	
+
