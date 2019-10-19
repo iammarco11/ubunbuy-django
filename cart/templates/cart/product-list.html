@@ -2,7 +2,7 @@
 
 <ul>
 {% for Product in object_list %}
-    <li>{{ Product.name }}</li>
+    <a href="product/{{Product.slug}}/">{{Product.name}}<a>
     <p>{{Product.description}}</p>
 {% empty %}
     <li>No articles yet.</li>
