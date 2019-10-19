@@ -1,1 +1,11 @@
 <h1>Product List</h1>
+
+<ul>
+{% for Product in object_list %}
+    <li>{{ Product.name }}</li>
+    <p>{{Product.description}}</p>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
+

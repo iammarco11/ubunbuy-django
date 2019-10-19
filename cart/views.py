@@ -1,9 +1,9 @@
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
-
+from django.views.generic.detail import DetailView
 from cart.models import Product
 
-class ProductDetailView(TemplateView,ListView):
+class ProductDetailView(DetailView):
     model = Product
 
 
@@ -11,17 +11,17 @@ class ProductDetailView(TemplateView,ListView):
     
 	
 
-    #def get_context_data(self, **kwargs):
-     #   context = super().get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+       context = super().get_context_data(**kwargs)
         
-      #  return context
+       return context
 
 
 
-class ProductListView(TemplateView):
-    
+class ProductListView(ListView):
+    model = Product
     template_name = 'cart/product-list.html'
-
+    
 class CartView(TemplateView):
     template_name = 'cart/cart.html'
     
