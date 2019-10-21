@@ -1,5 +1,6 @@
+{%load static%}
 <h1>Product List</h1>
-
+<link rel="stylesheet" href="{%static 'cart/css/style.css'%}">
 <ul>
 {% for Product in object_list %}
     <a href="product/{{Product.slug}}/">{{Product.name}}<a>
