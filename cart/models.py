@@ -14,7 +14,7 @@ class Product(models.Model):
 
 
 class Cart(models.Model):
-    product = models.OneToOneField(Product, on_delete=models.CASCADE, related_name='cart_item')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cart_item')
     quantity = models.FloatField()
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
