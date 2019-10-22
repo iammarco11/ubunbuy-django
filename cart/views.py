@@ -1,8 +1,11 @@
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from cart.models import Product
+from cart.models import Product, Cart
 from django.template import loader
+from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpRequest
+from .forms import TickForm
 class ProductDetailView(DetailView):
     model = Product
 
@@ -15,6 +18,20 @@ class ProductDetailView(DetailView):
        context = super().get_context_data(**kwargs)
         
        return context
+    def tick(self,request):
+    
+        if request.method == 'POST':
+            form = TickForm(request.POST)
+        
+            if form.is_valid():
+            
+                return HttpResponseRedirect('cart/')
+
+    
+        else:
+            form = TickForm()
+
+        return render(request, 'cart.html', {'form': form})
 
 class ProductListView(ListView):
     model = Product
@@ -22,7 +39,7 @@ class ProductListView(ListView):
     
 class CartView(ListView):
     template_name = 'cart/cart.html'
-    model = Product
+    model = Cart
     def get_context_data(self, **kwargs):
        context = super().get_context_data(**kwargs)
         

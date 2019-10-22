@@ -4,4 +4,8 @@
 <p>Name: {{ object.name }}</p>
 <p>Description:{{ object.description }}</p>
 <p>Published: {{ object.created_date|date }}</p>
-<a href="/cart/{{object.slug}}">Add to cart</a> 
+<form action="/cart/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add to cart">
+</form> 

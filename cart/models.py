@@ -21,3 +21,5 @@ class Cart(models.Model):
 
     def __str__(self):
         return self.product.name + str(self.quantity)
+class Settings(models.Model):
+    tick = models.BooleanField()
