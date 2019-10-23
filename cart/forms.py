@@ -1,8 +1,8 @@
 from django import forms
-from .models import Settings
+from .models import Cart
 
-class TickForm(forms.Form):
+class TickForm(forms.ModelForm):
     tick = forms.BooleanField(label = 'ok')
-    class Meta:
-        model = Settings
+    model = Cart
+
         

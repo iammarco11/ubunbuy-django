@@ -18,20 +18,6 @@ class ProductDetailView(DetailView):
        context = super().get_context_data(**kwargs)
         
        return context
-    def tick(self,request):
-    
-        if request.method == 'POST':
-            form = TickForm(request.POST)
-        
-            if form.is_valid():
-            
-                return HttpResponseRedirect('cart/')
-
-    
-        else:
-            form = TickForm()
-
-        return render(request, 'cart.html', {'form': form})
 
 class ProductListView(ListView):
     model = Product
