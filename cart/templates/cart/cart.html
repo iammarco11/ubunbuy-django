@@ -1,2 +1,9 @@
 <h1>Cart</h1> 
-<p>{{Product.name}}<p>
+<ul>
+    {% for object in object_list %}
+        <p>Object name: {{object.name}}</p>
+        <p>Description: {{object.description}}</p>
+    {% empty %}
+        <li>No items has been added to the cart.</li>
+    {% endfor %}
+</ul>
