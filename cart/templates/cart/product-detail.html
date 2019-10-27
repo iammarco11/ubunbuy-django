@@ -1,4 +1,8 @@
+
+{% extends 'cart/base.html' %}
+
 {% load static %}
+{% block content %}
 <link rel="stylesheet" href="{% static 'cart/css/style.css' %}">
 <h1>Product Details</h1>
 <p>Name: {{ object.name }}</p>
@@ -12,3 +16,4 @@
     {{form.quantity.errors}}
     <input type="submit" value="Add to cart">
 </form> 
+{%endblock%}
